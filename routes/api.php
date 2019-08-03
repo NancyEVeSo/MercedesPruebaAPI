@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/v1/marca', 'marcacontroller');
-Route::resource('/v1/auto','autocontroller');
+Route::resource('/v2/auto','autocontroller');
