@@ -8,16 +8,73 @@ use App\Auto;
 
 class autocontroller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+      /**
+ * @SWG\Get(
+ *   path="/auto",
+ *   tags={"Lista de Auto"},
+ *   summary="Lista de Auto",
+ *   operationId="getCustomerRates",
+ *   
+ *   @SWG\Response(response=200, description="successful operation"),
+ *   @SWG\Response(response=406, description="not acceptable"),
+ *   @SWG\Response(response=500, description="internal server error")
+ * )
+ *
+ */
     public function index()
     {
         $auto=Auto::all();
         return response()->json(['Auto'=>$auto,'code'=>200]);
     }
+
+
+     /**
+     * @SWG\Post(
+     *   path="/auto",
+ *       tags={"Lista de Auto"},
+ *       summary="Lista de Auto",
+     *   operationId="getCustomerRates 1",
+     *   @SWG\Parameter(
+     *     name="idmarca",
+     *     in="formData",
+     *     description="ingresar id  marca",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="modelo",
+     *     in="formData",
+     *     description="ingresar modelo",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *  @SWG\Parameter(
+     *     name="placa",
+     *     in="formData",
+     *     description="ingresar placa",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   *  @SWG\Parameter(
+     *     name="color",
+     *     in="formData",
+     *     description="ingresar color",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   *  @SWG\Parameter(
+     *     name="precio",
+     *     in="formData",
+     *     description="ingresar precio",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation"),
+     *   @SWG\Response(response=404, description="not found"),)
+     * )
+     *
+     */
+
 
    
 
@@ -40,11 +97,25 @@ class autocontroller extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @SWG\Get(
+     *   path="/auto/{id}",
+     *   tags={"Lista de Auto"},
+     *   summary="Obtener Auto",
+     *   operationId="getRed",
+     *   @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="ingresar id del auto",
+     *     required=true,
+     *     type="integer"
+     *   ),
+     *   @SWG\Response(response=200, description="datos obtenidos correctamente"),
+     *   @SWG\Response(response=404, description="el id de auto no existe"),
+     *   @SWG\Response(response=422, description="no se permiten valores nulos"),
+     * )
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
          $auto= Auto::find($id);
@@ -53,6 +124,63 @@ class autocontroller extends Controller
         }
         return response()->json(['Auto'=> $auto,'code'=>'200']);
     }
+
+
+    /**
+     * @SWG\Put(
+     *   path="/auto/{id}",
+     *   tags={"Lista de Auto"},
+     *   summary="actualizar autos compartidos",
+     *   operationId="sharedRed",
+     *   @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="ingresar id de autos",
+     *     required=true,
+     *     type="integer"
+     *   ),
+     *   *   @SWG\Parameter(
+     *     name="idmarca",
+     *     in="formData",
+     *     description="ingresar id  marca",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="modelo",
+     *     in="formData",
+     *     description="ingresar modelo",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *  @SWG\Parameter(
+     *     name="placa",
+     *     in="formData",
+     *     description="ingresar placa",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   *  @SWG\Parameter(
+     *     name="color",
+     *     in="formData",
+     *     description="ingresar color",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   *  @SWG\Parameter(
+     *     name="precio",
+     *     in="formData",
+     *     description="ingresar precio",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="datos obtenidos correctamente"),
+     *   @SWG\Response(response=404, description="Auto no encontrado"),
+     *   @SWG\Response(response=422, description="no se permiten valores nulos"),
+     * )
+     *
+     */
+
 
     
     public function update(Request $request, $id)
@@ -79,12 +207,27 @@ class autocontroller extends Controller
         return response()->json(['message'=>'Auto actualizado', 'code'=>'200']);
     }
 
-    /**
-     * Remove the specified resource from storage.
+   
+  /**
+     * @SWG\Delete(
+     *   path="/AUTO/{id}",
+     *   tags={"Lista de Auto"},
+     *   summary="eliminar Auto",
+     *   operationId="deleteAuto",
+     *   @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="ingresar el id del auto",
+     *     required=true,
+     *     type="integer"
+     *   ),
+     *   @SWG\Response(response=204, description="Auto eliminado correctamente"),
+     *   @SWG\Response(response=404, description="Auto no encontrada"),
+     * )
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
+
+
     public function destroy($id)
     {
         if(empty($id)) {

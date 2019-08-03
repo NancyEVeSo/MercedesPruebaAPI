@@ -1,0 +1,331 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Mercedes Apis",
+        "version": "1.0.0"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/auto": {
+            "get": {
+                "tags": [
+                    "Lista de Auto"
+                ],
+                "summary": "Lista de Auto",
+                "operationId": "getCustomerRates",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lista de auto"
+                ],
+                "summary": "Lista de Auto",
+                "operationId": "getCustomerRates 1",
+                "parameters": [
+                    {
+                        "name": "idmarca",
+                        "in": "formData",
+                        "description": "ingresar id  marca",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "modelo",
+                        "in": "formData",
+                        "description": "ingresar modelo",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "placa",
+                        "in": "formData",
+                        "description": "ingresar placa",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "color",
+                        "in": "formData",
+                        "description": "ingresar color",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "precio",
+                        "in": "formData",
+                        "description": "ingresar precio",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/auto/{id}": {
+            "get": {
+                "tags": [
+                    "Lista de Autos"
+                ],
+                "summary": "Obtener Auto",
+                "operationId": "getRed",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ingresar id del auto",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "datos obtenidos correctamente"
+                    },
+                    "404": {
+                        "description": "el id de auto no existe"
+                    },
+                    "422": {
+                        "description": "no se permiten valores nulos"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Lista de autos"
+                ],
+                "summary": "actualizar autos compartidos",
+                "operationId": "sharedRed",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ingresar id de autos",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "idmarca",
+                        "in": "formData",
+                        "description": "ingresar id  marca",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "modelo",
+                        "in": "formData",
+                        "description": "ingresar modelo",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "placa",
+                        "in": "formData",
+                        "description": "ingresar placa",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "color",
+                        "in": "formData",
+                        "description": "ingresar color",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "precio",
+                        "in": "formData",
+                        "description": "ingresar precio",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "datos obtenidos correctamente"
+                    },
+                    "404": {
+                        "description": "Auto no encontrado"
+                    },
+                    "422": {
+                        "description": "no se permiten valores nulos"
+                    }
+                }
+            }
+        },
+        "/AUTO/{id}": {
+            "delete": {
+                "tags": [
+                    "Lista de Auto"
+                ],
+                "summary": "eliminar Auto",
+                "operationId": "deleteAuto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ingresar el id del auto",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Auto eliminado correctamente"
+                    },
+                    "404": {
+                        "description": "Auto no encontrada"
+                    }
+                }
+            }
+        },
+        "/marca": {
+            "get": {
+                "tags": [
+                    "Lista de marca"
+                ],
+                "summary": "Lista de marca",
+                "operationId": "getCustomerRates",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lista de marca"
+                ],
+                "summary": "Lista de marca",
+                "operationId": "getCustomerRates 1",
+                "parameters": [
+                    {
+                        "name": "descripcion",
+                        "in": "formData",
+                        "description": "ingresar marca",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/marca/{id}": {
+            "get": {
+                "tags": [
+                    "Lista de marcas"
+                ],
+                "summary": "Obtener marca",
+                "operationId": "getRed",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ingresar id de la marca",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "datos obtenidos correctamente"
+                    },
+                    "404": {
+                        "description": "el id de marca no existe"
+                    },
+                    "422": {
+                        "description": "no se permiten valores nulos"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Lista de marcas"
+                ],
+                "summary": "actualizar marcas compartidas",
+                "operationId": "sharedRed",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ingresar id de marcas",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "descripcion",
+                        "in": "formData",
+                        "description": "ingresar marca",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "datos obtenidos correctamente"
+                    },
+                    "404": {
+                        "description": "Auto no encontrado"
+                    },
+                    "422": {
+                        "description": "no se permiten valores nulos"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Lista de marca"
+                ],
+                "summary": "eliminar marca",
+                "operationId": "deleteMarca",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ingresar el id de la marca",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Marca eliminada correctamente"
+                    },
+                    "404": {
+                        "description": "Marca no encontrada"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
